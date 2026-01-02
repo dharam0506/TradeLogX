@@ -5,9 +5,9 @@ const Footer = () => {
     <footer className="bg-slate-900 border-t border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Trade Diary Column */}
+          {/* TradeLogX Column */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Trade Diary</h3>
+            <h3 className="text-lg font-bold text-white mb-4">TradeLogX</h3>
             <p className="text-slate-400 text-sm">
               India's most advanced trading journal for serious traders looking to improve their performance.
             </p>
@@ -48,7 +48,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-slate-800 pt-8">
-          <p className="text-slate-400 text-sm">© 2025 Trade Diary. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">© 2025 TradeLogX. All rights reserved.</p>
         </div>
       </div>
     </footer>

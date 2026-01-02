@@ -85,17 +85,17 @@ const StatsCards = ({ stats, loading }) => {
       {statCards.map((stat, index) => (
         <div
           key={index}
-          className={`bg-slate-800 rounded-xl p-6 border ${stat.borderColor} transition-all hover:scale-105`}
+          className={`bg-slate-800 rounded-xl p-6 border ${stat.borderColor} transition-all hover:scale-105 w-full overflow-visible`}
         >
           <div className="flex items-center justify-between mb-4">
-            <div className={`p-3 rounded-lg ${stat.bgColor}`}>
+            <div className={`p-3 rounded-lg ${stat.bgColor} flex-shrink-0`}>
               <div className={stat.color}>
                 {stat.icon}
               </div>
             </div>
           </div>
-          <div className={stat.color}>
-            <p className="text-3xl font-bold mb-1">{stat.value}</p>
+          <div className={`${stat.color} w-full overflow-visible`}>
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 break-words whitespace-normal">{stat.value}</p>
             <p className="text-slate-400 text-sm font-medium">{stat.label}</p>
           </div>
         </div>

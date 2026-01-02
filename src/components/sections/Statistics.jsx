@@ -3,7 +3,7 @@ const Statistics = () => {
     { value: '120k+', label: 'Trades logged and analyzed' },
     { value: '2.5x', label: 'Disciplined trades' },
     { value: '-63%', label: 'Emotional trades' },
-    { value: '4K+', label: 'Active traders on Trade Diary' },
+    { value: '4K+', label: 'Active traders on TradeLogX' },
   ]
 
   return (

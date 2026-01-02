@@ -67,7 +67,7 @@ const Signup = () => {
                 Create your account
               </h2>
               <p className="text-slate-400">
-                Sign up to get started with Trade Diary
+                Sign up to get started with TradeLogX
               </p>
             </div>
 

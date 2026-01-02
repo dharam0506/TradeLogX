@@ -5,15 +5,15 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "How does Trade Diary help improve my trading?",
-      answer: "Trade Diary provides data-driven insights into your trading performance. By analyzing your win rate, profit factor, average win/loss, and other metrics across different strategies and market conditions, you can identify what's working and eliminate weaknesses in your approach."
+      question: "How does TradeLogX help improve my trading?",
+      answer: "TradeLogX provides data-driven insights into your trading performance. By analyzing your win rate, profit factor, average win/loss, and other metrics across different strategies and market conditions, you can identify what's working and eliminate weaknesses in your approach."
     },
     {
       question: "Is my trading data secure?",
       answer: "Absolutely. We use bank-grade encryption for all data in transit and at rest. Your trading data is never shared with third parties. You can also enable two-factor authentication for additional security."
     },
     {
-      question: "Are there any additional costs or fees for using Trade Diary?",
+      question: "Are there any additional costs or fees for using TradeLogX?",
       answer: "The costs are outlined in our subscription plans. There are no hidden fees."
     },
     {
@@ -33,7 +33,7 @@ const FAQ = () => {
           Frequently <span className="text-blue-400">Asked Questions</span>
         </h2>
         <p className="text-lg text-slate-400">
-          Find answers to common questions about Trade Diary
+          Find answers to common questions about TradeLogX
         </p>
       </div>
 

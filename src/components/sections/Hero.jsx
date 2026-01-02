@@ -12,7 +12,7 @@ const Hero = () => {
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Indian Stock Market{' '}
-            <span className="text-blue-400">Trade Diary with AI</span>
+            <span className="text-blue-400">TradeLogX with AI</span>
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed">

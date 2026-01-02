@@ -21,6 +21,7 @@ dist-ssr
 .env.production.local
 server/.env
 server/.env.*
+guide/
 
 # Editor directories and files
 .vscode/*

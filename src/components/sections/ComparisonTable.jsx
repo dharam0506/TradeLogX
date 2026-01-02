@@ -23,7 +23,7 @@ const ComparisonTable = () => {
           <span className="text-blue-400">Journaling Methods</span>
         </h2>
         <p className="text-lg text-slate-400">
-          Why professional traders choose Trade Diary over other solutions
+          Why professional traders choose TradeLogX over other solutions
         </p>
       </div>
 
@@ -32,7 +32,7 @@ const ComparisonTable = () => {
           <thead>
             <tr className="border-b border-slate-700">
               <th className="px-6 py-4 text-left text-white font-semibold">Feature</th>
-              <th className="px-6 py-4 text-center text-white font-semibold">Trade Diary</th>
+              <th className="px-6 py-4 text-center text-white font-semibold">TradeLogX</th>
               <th className="px-6 py-4 text-center text-white font-semibold">On Paper</th>
             </tr>
           </thead>

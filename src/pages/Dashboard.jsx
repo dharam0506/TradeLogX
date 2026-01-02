@@ -146,7 +146,7 @@ const Dashboard = () => {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <h1 className="text-3xl font-bold text-white mb-2">
-                  Welcome to Trade Diary
+                  Welcome to TradeLogX
                 </h1>
                 <p className="text-slate-400">
                   {user?.name ? `Hello, ${user.name}! Track and analyze your Indian stock trades.` : 'Track and analyze your trades'}

@@ -35,7 +35,7 @@ const Navigation = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <span className="text-xl font-bold text-white">Trade Diary</span>
+            <span className="text-xl font-bold text-white">TradeLogX</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,12 +55,6 @@ const Navigation = () => {
           <div className="flex items-center space-x-4">
             {authenticated ? (
               <>
-                <Link 
-                  to="/dashboard" 
-                  className="px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium"
-                >
-                  Dashboard
-                </Link>
                 <button
                   onClick={handleLogout}
                   className="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors font-medium"

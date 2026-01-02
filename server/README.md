@@ -1,6 +1,6 @@
-# Trade Diary Backend API
+# TradeLogX Backend API
 
-Backend server for Trade Diary application with authentication system.
+Backend server for TradeLogX application with authentication system.
 
 ## Features
 
@@ -37,6 +37,7 @@ npm install
 📖 **Detailed setup guide**: See [MONGODB_ATLAS_SETUP.md](MONGODB_ATLAS_SETUP.md)
 
 **Quick Steps:**
+
 1. Sign up at https://www.mongodb.com/cloud/atlas (free tier)
 2. Create a free cluster (M0)
 3. Create database user and whitelist your IP
@@ -47,10 +48,12 @@ npm install
 Create a `.env` file in the `server` directory:
 
 **For MongoDB Atlas (Recommended):**
+
 ```env
 PORT=5000
 MONGODB_URI=mongodb+srv://YOUR-USERNAME:YOUR-PASSWORD@cluster0.xxxxx.mongodb.net/tradelogx?retryWrites=true&w=majority
 JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+GEMINI_API_KEY=your-google-gemini-api-key
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
 ```
@@ -58,26 +61,33 @@ CLIENT_URL=http://localhost:5173
 Replace `YOUR-USERNAME`, `YOUR-PASSWORD`, and the cluster address with your Atlas credentials.
 
 **For Local MongoDB:**
+
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/tradelogx
 JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+GEMINI_API_KEY=your-google-gemini-api-key
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
 ```
 
-**Important**: 
+**Note:** Get your free Google Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey). The AI Summarizer feature requires this API key to function.
+
+**Important**:
+
 - Change the `JWT_SECRET` to a secure random string in production!
 - Never commit your `.env` file to version control (it's in `.gitignore`)
 
 ### 4. Start the Server
 
 For development (with auto-reload):
+
 ```bash
 npm run dev
 ```
 
 For production:
+
 ```bash
 npm start
 ```
@@ -87,22 +97,26 @@ The server will run on `http://localhost:5000`
 ## API Endpoints
 
 ### Health Check
+
 - **GET** `/api/health`
   - Returns server status
 
 ### Authentication
 
 #### Signup
+
 - **POST** `/api/auth/signup`
   - Body: `{ email: string, password: string, name?: string }`
   - Returns: `{ success: true, data: { user, token } }`
 
 #### Login
+
 - **POST** `/api/auth/login`
   - Body: `{ email: string, password: string }`
   - Returns: `{ success: true, data: { user, token } }`
 
 #### Get Current User
+
 - **GET** `/api/auth/me`
   - Headers: `Authorization: Bearer <token>`
   - Returns: `{ success: true, data: { user } }`
@@ -119,6 +133,7 @@ The server will run on `http://localhost:5000`
 ## Database Schema
 
 ### User Model
+
 ```javascript
 {
   email: String (required, unique, lowercase),
@@ -140,6 +155,7 @@ The server will run on `http://localhost:5000`
 ## Error Handling
 
 All endpoints return consistent error responses:
+
 ```json
 {
   "success": false,
@@ -147,4 +163,3 @@ All endpoints return consistent error responses:
   "errors": [] // Validation errors if applicable
 }
 ```
-

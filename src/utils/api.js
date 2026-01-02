@@ -115,7 +115,7 @@ export const tradeAPI = {
         if (filters.exchange) queryParams.append('exchange', filters.exchange)
         if (filters.dateFrom) queryParams.append('dateFrom', filters.dateFrom)
         if (filters.dateTo) queryParams.append('dateTo', filters.dateTo)
-        
+
         const queryString = queryParams.toString()
         const endpoint = `/trades${queryString ? `?${queryString}` : ''}`
         return apiRequest(endpoint)
@@ -157,6 +157,11 @@ export const tradeAPI = {
     // Get psychology patterns
     getPsychologyPatterns: async () => {
         return apiRequest('/trades/psychology/patterns')
+    },
+
+    // Get analytics insights
+    getAnalyticsInsights: async () => {
+        return apiRequest('/trades/analytics/insights')
     },
 
     // Analyze trade with AI
