@@ -8,6 +8,16 @@
 
 TradeLogX is a comprehensive trading journal application specifically designed for Indian stock market traders. It helps you track, analyze, and improve your trading performance through AI-powered insights, emotion tracking, and technical analysis.
 
+## 📸 Screenshots
+
+### Landing Page
+
+![Landing Page](./imgs/Website.png)
+
+### Dashboard
+
+![Dashboard](./imgs/dashboard.png)
+
 ## ✨ Features
 
 ### 🤖 AI Summarizer

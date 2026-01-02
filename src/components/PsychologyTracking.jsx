@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts'
 import { tradeAPI } from '../utils/api'
 
 const PsychologyTracking = ({ trades }) => {
@@ -222,17 +223,66 @@ const PsychologyTracking = ({ trades }) => {
       {psychologyData.emotionDistribution && psychologyData.emotionDistribution.length > 0 && (
         <div className="mb-6 bg-slate-900 rounded-lg p-6 border border-slate-700">
           <h3 className="text-xl font-bold text-white mb-4">Emotion Distribution</h3>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {psychologyData.emotionDistribution.map((item, index) => (
-              <div
-                key={index}
-                className={`p-4 rounded-lg border ${getEmotionColor(item.emotion)}`}
-              >
-                <div className="text-2xl font-bold mb-1">{item.percentage}%</div>
-                <div className="text-sm font-medium mb-1">{getEmotionLabel(item.emotion)}</div>
-                <div className="text-xs opacity-75">{item.count} trades</div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Pie Chart */}
+            <div>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={psychologyData.emotionDistribution.filter(item => item.count > 0)}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ emotion, percentage }) => `${getEmotionLabel(emotion)}: ${typeof percentage === 'number' ? percentage.toFixed(1) : percentage}%`}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="count"
+                  >
+                    {psychologyData.emotionDistribution.filter(item => item.count > 0).map((entry, index) => {
+                      const colors = {
+                        fear: '#ef4444',
+                        greed: '#eab308',
+                        confidence: '#22c55e',
+                        anxiety: '#f97316',
+                        calm: '#3b82f6'
+                      }
+                      return <Cell key={`cell-${index}`} fill={colors[entry.emotion] || '#64748b'} />
+                    })}
+                  </Pie>
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: '#1e293b', 
+                      border: '1px solid #475569',
+                      borderRadius: '8px',
+                      color: '#f1f5f9'
+                    }}
+                    formatter={(value, name, props) => {
+                      const percentage = props.payload.percentage
+                      return [`${value} trades (${typeof percentage === 'number' ? percentage.toFixed(1) : percentage}%)`, 'Count']
+                    }}
+                  />
+                  <Legend 
+                    wrapperStyle={{ color: '#cbd5e1' }}
+                    formatter={(value) => getEmotionLabel(value)}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Emotion Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {psychologyData.emotionDistribution.map((item, index) => (
+                <div
+                  key={index}
+                  className={`p-4 rounded-lg border ${getEmotionColor(item.emotion)}`}
+                >
+                  <div className="text-2xl font-bold mb-1">
+                    {typeof item.percentage === 'number' ? item.percentage.toFixed(1) : item.percentage}%
+                  </div>
+                  <div className="text-sm font-medium mb-1">{getEmotionLabel(item.emotion)}</div>
+                  <div className="text-xs opacity-75">{item.count} trades</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
